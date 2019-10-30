@@ -19,8 +19,8 @@ struct song_node * table[27];
 ```
 
 You should start by making your linked lists work with the following functionality:
--insert nodes at the front
--insert nodes in order
+- insert nodes at the front
+- insert nodes in order
     - alphabetical by Artist then by Song
 - print the entire list
 - find and return a pointer to a node based on artist and song name
