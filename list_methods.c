@@ -31,7 +31,7 @@ struct song_node * insert_order(struct song_node * node, char * song, char * art
 
 void print_list(struct song_node * node) {
     for(; node!=NULL; node = node -> next) {
-        printf("%s: %s | ", node->artist, node->name);
+        printf(" %s: %s |", node->artist, node->name);
     }
     printf("\n");
 }
@@ -63,8 +63,51 @@ struct song_node * random_song(struct song_node * node) {
     return NULL;
 }
 
-struct song_node * remove_node(struct song_node * node, char * name, char * artist) {
+int correct_info(struct song_node * node, char * name, char * artist) {
+    return (strcmp(node->name, name) == 0 && strcmp(node->artist, artist) == 0);
+}
 
+struct song_node * remove_node(struct song_node * node, char * name, char * artist) {
+    //the current node is the first node
+    struct song_node * current = node;
+
+    //if the list is not empty 
+    if(current != NULL) { 
+        
+        if(correct_info(current, name, artist)) {
+            struct song_node * nix = current;
+
+            //shift the first node to the next node 
+            node = node -> next;
+
+            free(nix);
+            nix = NULL;
+        }
+        else {
+            for(; current->next != NULL; current = current->next) {
+                if(correct_info(current -> next, name, artist)) {
+                    struct song_node * nix = current->next; 
+                    current->next = nix->next;
+                    free(nix);
+                    nix = NULL;
+                    return node;
+                }
+            }
+
+            //if the end of the list has been reached 
+            if(current->next == NULL) {
+                printf(" %s - %s not found\n", artist, name);
+            }
+        }
+    }
+
+    // if the list is empty 
+    else {
+        printf(" %s - %s not found\n", artist, name);
+    }
+
+    //return the front of the list 
+    return node;
 }
 
 struct song_node * free_list(struct song_node * node) {
