@@ -4,15 +4,10 @@
 #include <time.h>
 #include "list_headers.h"
 
-void insert_string(char * string, char * insert) {
-    int i;
-    for(i = 0; i < 100, insert[i] != '\0'; string[i] = insert[i], i++) { }
-}
-
 struct song_node * insert_front(struct song_node * node, char * name, char * artist) {
     struct song_node * newSong = malloc(sizeof(struct song_node));
-    insert_string(newSong->artist, artist);
-    insert_string(newSong->name, name);
+    strcpy(newSong->artist, artist);
+    strcpy(newSong->name, name);
     newSong->next = node;
     return newSong;
 }
