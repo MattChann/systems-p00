@@ -62,7 +62,7 @@ struct song_node * remove_node(struct song_node * node, char * name, char * arti
 
 struct song_node * free_list(struct song_node * node) {
     for(; node!=NULL; node=node->next) {
-        struct node *nullifyNode = node;
+        struct song_node *nullifyNode = node;
         free(nullifyNode);
         nullifyNode = NULL;
     }
