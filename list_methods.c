@@ -43,7 +43,17 @@ struct song_node * find_artist(char * artist) {
 }
 
 struct song_node * random_song(struct song_node * node) {
-    
+    srand(time(NULL));
+    int length=0;
+    struct song_node * parseNode;
+    for(parseNode=node; parseNode!=NULL; parseNode=parseNode->next) {length++;}
+
+    int randIndex = rand() % length;
+    int i;
+    for(i=0; node!=NULL; node=node->next, i++) {
+        if(i == randIndex) {return node;}
+    }
+    return NULL;
 }
 
 struct song_node * remove_node(struct song_node * node, char * name, char * artist) {
@@ -51,5 +61,10 @@ struct song_node * remove_node(struct song_node * node, char * name, char * arti
 }
 
 struct song_node * free_list(struct song_node * node) {
-
+    for(; node!=NULL; node=node->next) {
+        struct node *nullifyNode = node;
+        free(nullifyNode);
+        nullifyNode = NULL;
+    }
+    return node;
 }
