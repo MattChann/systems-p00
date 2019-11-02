@@ -4,6 +4,8 @@
 #include <time.h>
 #include "list_headers.h"
 
+
+//eric
 struct song_node * insert_front(struct song_node * node, char * name, char * artist) {
     struct song_node * newSong = malloc(sizeof(struct song_node));
     strcpy(newSong->artist, artist);
@@ -12,6 +14,7 @@ struct song_node * insert_front(struct song_node * node, char * name, char * art
     return newSong;
 }
 
+//matthew
 struct song_node * insert_order(struct song_node * node, char * song, char * artist) {
     struct song_node *currentNode, sentinelNode;
     sentinelNode.next = node;
@@ -29,15 +32,18 @@ struct song_node * insert_order(struct song_node * node, char * song, char * art
     return node;
 }
 
+//eric
 void print_list(struct song_node * node) {
     for(; node!=NULL; print_node(node), printf(" |"), node = node -> next) { }
     printf("\n");
 }
 
+//eric
 void print_node(struct song_node * node) {
     printf(" %s: %s", node->artist, node->name);
 }
 
+//matthew
 struct song_node * find_song(struct song_node * node, char * artist, char * song) {
     for(; node!=NULL; node=node->next) {
         if(artist == node->artist && song == node->name) {
@@ -47,10 +53,20 @@ struct song_node * find_song(struct song_node * node, char * artist, char * song
     return NULL;
 }
 
-struct song_node * find_artist(char * artist) {
-
+//eric
+struct song_node * find_artist(struct song_node * node, char * artist) {
+    for(; node != NULL; node = node -> next) {
+        if(strcmp(node->artist, artist) == 0) {
+            printf(" artist found!");
+            print_list(node);
+            return node;
+        }
+    }
+    printf(" artist not found");
+    return NULL;
 }
 
+//matthew
 struct song_node * random_song(struct song_node * node) {
     srand(time(NULL));
     int length=0;
@@ -65,10 +81,12 @@ struct song_node * random_song(struct song_node * node) {
     return NULL;
 }
 
+//eric
 int correct_info(struct song_node * node, char * name, char * artist) {
     return (strcmp(node->name, name) == 0 && strcmp(node->artist, artist) == 0);
 }
 
+//eric
 struct song_node * remove_node(struct song_node * node, char * name, char * artist) {
     //the current node is the first node
     struct song_node * current = node;
@@ -112,6 +130,7 @@ struct song_node * remove_node(struct song_node * node, char * name, char * arti
     return node;
 }
 
+//matthew
 struct song_node * free_list(struct song_node * node) {
     for(; node!=NULL; node=node->next) {
         struct song_node *nullifyNode = node;

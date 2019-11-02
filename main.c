@@ -23,9 +23,16 @@ int main() {
 
     //testing find node 
 
-    //testing find artist 
+    printf("Testing find_artist:\n");
+    printf("looking for [emotional oranges]\n");
+    find_artist(list, "emotional oranges");
+    printf("looking for [jeremih]\n");
+    find_artist(list, "jeremih");
+    printf("looking for [death grips]\n");
+    find_artist(list, "death grips");
+    printf("\n====================================\n\n");
 
-    //testing songcmp (helper function)
+    //testing songcmp (helper function) not sure if this is necessary but its part of sample output
 
     //testing random
 
