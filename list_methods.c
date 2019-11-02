@@ -1,18 +1,19 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 #include "list_headers.h"
 
 struct song_node * insert_front(struct song_node * node, char * name, char * artist) {
     
 }
 
-struct song_node * insert_order(struct song_node * node, char * name, char * artist) {
+struct song_node * insert_order(struct song_node * node, char * song, char * artist) {
     struct song_node *currentNode, sentinelNode;
     sentinelNode.next = node;
     for(currentNode=&sentinelNode; currentNode!=NULL; currentNode=currentNode->next) {
         if(strcmp(artist, currentNode->artist) > 0 ||
-          (strcmp(artist, currentNode->artist) == 0 && strcmp(name, currentNode->name)))
+          (strcmp(artist, currentNode->artist) == 0 && strcmp(song, currentNode->name)))
         {
             struct song_node * newSong = malloc(sizeof(struct song_node));
             currentNode->next = currentNode->next->next;
@@ -28,8 +29,13 @@ void print_list(struct song_node * node) {
 
 }
 
-struct song_node * find_song(char * artist, char * song) {
-    
+struct song_node * find_song(struct song_node * node, char * artist, char * song) {
+    for(; node!=NULL; node=node->next) {
+        if(artist == node->artist && song == node->name) {
+            return node;
+        }
+    }
+    return NULL;
 }
 
 struct song_node * find_artist(char * artist) {
@@ -37,7 +43,7 @@ struct song_node * find_artist(char * artist) {
 }
 
 struct song_node * random_song(struct song_node * node) {
-
+    
 }
 
 struct song_node * remove_node(struct song_node * node, char * name, char * artist) {
