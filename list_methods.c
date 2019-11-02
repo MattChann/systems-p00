@@ -30,10 +30,12 @@ struct song_node * insert_order(struct song_node * node, char * song, char * art
 }
 
 void print_list(struct song_node * node) {
-    for(; node!=NULL; node = node -> next) {
-        printf(" %s: %s |", node->artist, node->name);
-    }
+    for(; node!=NULL; print_node(node), printf(" |"), node = node -> next) { }
     printf("\n");
+}
+
+void print_node(struct song_node * node) {
+    printf(" %s: %s", node->artist, node->name);
 }
 
 struct song_node * find_song(struct song_node * node, char * artist, char * song) {
