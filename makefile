@@ -15,7 +15,7 @@ main.o: main.c library_headers.h list_headers.h
 library_methods.o: library_methods.c library_headers.h
 	$(CC) -c library_methods.c 
 
-list_methods: list_methods.c list_headers.h
+list_methods.o: list_methods.c list_headers.h
 	$(CC) -c list_methods.c 
 
 val:

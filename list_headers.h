@@ -8,9 +8,11 @@ struct song_node * insert_front(struct song_node * node, char * name, char * art
 
 struct song_node * insert_order(struct song_node * node, char * name, char * artist);
 
+void insert_string(char * string, char * insert);
+
 void print_list(struct song_node * node);
 
-struct song_node * find_song(struct song_node * node, char * artist, char * song);
+struct song_node * find_song(struct song_node * node, char * name, char * artist);
 
 struct song_node * find_artist(char * artist);
 

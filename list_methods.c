@@ -4,8 +4,17 @@
 #include <time.h>
 #include "list_headers.h"
 
+void insert_string(char * string, char * insert) {
+    int i;
+    for(i = 0; i < 100, insert[i] != '\0'; string[i] = insert[i], i++) { }
+}
+
 struct song_node * insert_front(struct song_node * node, char * name, char * artist) {
-    
+    struct song_node * newSong = malloc(sizeof(struct song_node));
+    insert_string(newSong->artist, artist);
+    insert_string(newSong->name, name);
+    newSong->next = node;
+    return newSong;
 }
 
 struct song_node * insert_order(struct song_node * node, char * song, char * artist) {
@@ -26,7 +35,10 @@ struct song_node * insert_order(struct song_node * node, char * song, char * art
 }
 
 void print_list(struct song_node * node) {
-
+    for(; node!=NULL; node = node -> next) {
+        printf("%s: %s | ", node->artist, node->name);
+    }
+    printf("\n");
 }
 
 struct song_node * find_song(struct song_node * node, char * artist, char * song) {
