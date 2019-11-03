@@ -77,7 +77,7 @@ struct song_node * find_artist(struct song_node * node, char * artist) {
 
 //matthew
 //returns a pointer to random element in the list
-struct song_node * random_song(struct song_node * node, int seed) {
+struct song_node * random_node(struct song_node * node, int seed) {
     srand(seed);
     int length=0;
     struct song_node * parseNode;

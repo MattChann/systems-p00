@@ -17,7 +17,6 @@ int main() {
     list = insert_front(list, "oui", "jeremih");
     list = insert_front(list, "boredom", "tyler, the creator");
 
-    //========================================================================
     printf("Testing print_list:\n");
     print_list(list);
     printf("%s\n\n", divider);
@@ -62,7 +61,7 @@ int main() {
     printf("Testing random_node:\n");
     int i;
     for(i=0; i<5; i++) {
-        random_song(list, time(NULL)*(i+2));
+        random_node(list, time(NULL)*(i+2));
     }
     printf("%s\n\n", divider);
 
@@ -88,9 +87,14 @@ int main() {
     list = insert_front(list, "humble", "Kendrick Lamar");
     print_list(list);
     list = free_list(list);
-    printf("%s\n\n", divider);
 
 
     
+    printf("\n====================================\n");
+    printf("MUSIC LIBRARY TESTS\n");
+    printf("====================================\n\n");
+
+
+
     return 0;
 }
