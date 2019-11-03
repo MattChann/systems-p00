@@ -11,7 +11,7 @@ int main() {
     printf("====================================\n\n");
 
     //========================================================================
-    struct song_node * list = NULL;
+    struct name_node * list = NULL;
     list = insert_front(list, "dna", "kendrick lamar");
     list = insert_front(list, "someone else", "emotional oranges");
     list = insert_front(list, "oui", "jeremih");
@@ -28,30 +28,35 @@ int main() {
 
     //========================================================================
     printf("Testing find_node:\n");
-    char findingArtist[50] = "emotional oranges";
-    char findingSong[50] = "someone else";
-    printf("looking for [%s: %s]\n", findingArtist, findingSong);
-    find_node(list, findingArtist, findingSong);
+    char artist[50] = "emotional oranges";
+    char name[50] = "someone else";
+    printf("looking for [%s: %s]\n", artist, name);
+    find_node(list, artist, name);
 
-    strcpy(findingArtist, "thisIsNotAnArtist");
-    strcpy(findingSong, "thisIsNotASong");
-    printf("looking for [%s: %s]\n", findingArtist, findingSong);
-    find_node(list, findingArtist, findingSong);
+    strcpy(artist, "thisIsNotAnArtist");
+    strcpy(name, "thisIsNotAname");
+    printf("looking for [%s: %s]\n", artist, name);
+    find_node(list, artist, name);
 
-    strcpy(findingArtist, "kendrick lamar");
-    strcpy(findingSong, "dna");
-    printf("looking for [%s: %s]\n", findingArtist, findingSong);
-    find_node(list, findingArtist, findingSong);
+    strcpy(artist, "kendrick lamar");
+    strcpy(name, "dna");
+    printf("looking for [%s: %s]\n", artist, name);
+    find_node(list, artist, name);
     printf("%s\n\n", divider);
 
     //========================================================================
     printf("Testing find_artist:\n");
-    printf("looking for [emotional oranges]\n");
-    find_artist(list, "emotional oranges");
-    printf("looking for [jeremih]\n");
-    find_artist(list, "jeremih");
-    printf("looking for [death grips]\n");
-    find_artist(list, "death grips");
+    strcpy(artist, "emotional oranges");
+    printf("looking for [%s]\n", artist);
+    find_artist(list, artist);
+
+    strcpy(artist, "jeremih");
+    printf("looking for [%s]\n", artist);
+    find_artist(list, artist);
+
+    strcpy(artist, "death grips");
+    printf("looking for [%s]\n", artist);
+    find_artist(list, artist);
     printf("\n%s\n\n", divider);
 
     //========================================================================
@@ -67,34 +72,43 @@ int main() {
 
     //========================================================================
     printf("Testing remove:\n");
-    printf("Removing [emotional oranges: someone else]\n");
-    list = remove_node(list, "someone else", "emotional oranges");
+    strcpy(artist, "emotional oranges");
+    strcpy(name, "someone else");
+    printf("Removing [%s: %s]\n", artist, name);
+    list = remove_node(list, name, artist);
     print_list(list);
-    printf("Removing [kendrick lamar: dna]\n");
-    list = remove_node(list, "dna", "kendrick lamar");
+
+    strcpy(artist, "kendrick lamar");
+    strcpy(name, "dna");
+    printf("Removing [%s: %s]\n", artist, name);
+    list = remove_node(list, name, artist);
     print_list(list);
-    printf("Removing [kendrick lamar: fear]\n");
-    list = remove_node(list, "fear", "kendrick lamar");
+
+    strcpy(artist, "kendrick lamar");
+    strcpy(name, "fear");
+    printf("Removing [%s: %s]\n", artist, name);
+    list = remove_node(list, name, artist);
     print_list(list);
-    printf("Removing [tyler, the creator: boredom]\n");
-    list = remove_node(list, "boredom", "tyler, the creator");
+
+    strcpy(artist, "tyler, the creator");
+    strcpy(name, "boredom"); 
+    printf("Removing [%s: %s]\n", artist, name);
+    list = remove_node(list, name, artist);
     print_list(list);
     printf("%s\n\n", divider);
 
     //========================================================================
     printf("Testing free_list:\n");
-    list = insert_front(list, "Baby Shark", "Pinkfong");
-    list = insert_front(list, "humble", "Kendrick Lamar");
+    list = insert_front(list, "baby shark", "pinkfong");
+    list = insert_front(list, "humble", "kendrick lamar");
     print_list(list);
     list = free_list(list);
+    printf("list after free_list:\n");
+    print_list(list);
 
-
-    
-    printf("\n====================================\n");
+    printf("====================================\n");
     printf("MUSIC LIBRARY TESTS\n");
     printf("====================================\n\n");
-
-
 
     return 0;
 }
