@@ -88,6 +88,6 @@ void remove_song(struct song_node ** library, char * artist, char * name){
 void clear(struct song_node ** library) {
     int i;
     for(i=0; i<27; i++) {
-        free_list(library[i]);
+        library[i] = free_list(library[i]);
     }
 }

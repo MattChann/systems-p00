@@ -143,9 +143,12 @@ int main() {
     search_artist(table, "childish gambino");
     printf("%s", divider);
 
-    // printf("Testing clear_library\n");
-    
-    // printf("%s", divider);
+    printf("Testing clear_library\n");
+    clear(table);
+    printf("Library after clear:\n");
+    print_library(table);
+    printf("%s", divider);
+
 
     // printf("Adding songs to empty library\n");
     
