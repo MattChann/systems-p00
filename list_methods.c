@@ -52,6 +52,7 @@ struct song_node * insert_order(struct song_node * node, char * artist, char * n
             return node;
         }
     }
+    return insert_front(node, artist, name);
 }
 
 // eric
