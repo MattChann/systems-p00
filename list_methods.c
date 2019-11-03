@@ -20,13 +20,15 @@ struct song_node * insert_front(struct song_node * node, char * artist, char * n
 // If song1 belongs AFTER  song2, returns POSITIVE int
 // If songs are the SAME, returns 0
 int songcmp(struct song_node * song1, struct song_node * song2) {
-    if(strcmp(song1->artist, song2->artist) == 0) {
-        if(strcmp(song1->name, song2->name) == 0) {
-            return 0;
+    if(song1 != NULL && song2 != NULL) {
+        if(strcmp(song1->artist, song2->artist) == 0) {
+            if(strcmp(song1->name, song2->name) == 0) {
+                return 0;
+            }
+            return strcmp(song1->name, song2->name);
         }
-        return strcmp(song1->name, song2->name);
+        return strcmp(song1->artist, song2->artist);
     }
-    return strcmp(song1->artist, song2->artist);
 }
 
 // matthew
@@ -52,6 +54,8 @@ struct song_node * insert_order(struct song_node * node, char * artist, char * n
             return node;
         }
     }
+    printf("here\n");
+    return insert_front(node, artist, name);
 }
 
 // eric
@@ -64,7 +68,9 @@ void print_list(struct song_node * node) {
 // eric
 // Print a single node
 void print_node(struct song_node * node) {
-    printf(" %s: %s", node->artist, node->name);
+    if(node!=NULL) {
+        printf(" %s: %s", node->artist, node->name);
+    }
 }
 
 // matthew
@@ -94,7 +100,7 @@ struct song_node * find_artist(struct song_node * node, char * artist) {
             return node;
         }
     }
-    printf(" artist not found");
+    printf(" artist not found\n");
     return NULL;
 }
 

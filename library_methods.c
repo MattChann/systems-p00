@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 #include "list_headers.h"
 
 // matthew
@@ -62,6 +63,13 @@ void print_library(struct song_node * library){
 
 // matthew
 // Shuffle - print out a series of randomly chosen songs
+void shuffle(struct song_node * library) {
+    int i;
+    for(i=1; i<=3; i++) {
+        srand((time(NULL)+i)*i);
+        random_node(&library[rand() % 27], rand()*i);
+    }
+}
 
 // eric
 // Delete a song
@@ -74,3 +82,9 @@ struct song_node * remove_song(struct song_node * library, char * artist, char *
 
 // matthew
 // Clear the library
+void clear(struct song_node * library) {
+    int i;
+    for(i=0; i<27; i++) {
+        free_list(&library[i]);
+    }
+}
