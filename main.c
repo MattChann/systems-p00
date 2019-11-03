@@ -14,10 +14,10 @@ int main() {
     //========================================================================
     struct song_node * list = NULL;
     printf("Testing insert_front:\n");
-    // list = insert_front(list, "tyler, the creator", "boredom");
-    // list = insert_front(list, "kendrick lamar", "dna");
-    // list = insert_front(list, "jeremih", "oui");
-    // list = insert_front(list, "emotional oranges", "someone else");
+    list = insert_front(list, "tyler, the creator", "boredom");
+    list = insert_front(list, "kendrick lamar", "dna");
+    list = insert_front(list, "jeremih", "oui");
+    list = insert_front(list, "emotional oranges", "someone else");
     printf("%s", divider);
 
     //========================================================================
