@@ -16,7 +16,7 @@ void print_letter(struct song_node * library, char letter);
 
 // matthew
 // Print out all the songs of a certain artist
-void print_artist(struct song_node * library);
+void print_artist(struct song_node * library, char * artist);
 
 // eric
 // Print out the entire library

@@ -41,6 +41,17 @@ void print_letter(struct song_node ** library, char letter){
 
 // matthew
 // Print out all the songs of a certain artist
+void print_artist(struct song_node * library, char * artist) {
+    int index = artist[0] - 'a' + 1;
+    if (index < 0) {index = 0;}
+    
+    printf("Printing [%s]\n", artist);
+    struct song_node *foundNode = find_artist(&library[index], artist);
+    for(; foundNode->artist!=artist; foundNode=foundNode->next) {
+        print_node(foundNode);
+        printf("\n");
+    }
+}
 
 // eric
 // Print out the entire library
