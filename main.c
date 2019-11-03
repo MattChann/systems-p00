@@ -5,7 +5,7 @@
 #include "list_headers.h"
 
 int main() {
-    char divider[50] = "------------------------------------";
+    char divider[50] = "------------------------------------\n\n";
 
     printf("LINKED LIST TESTS\n");
     printf("====================================\n\n");
@@ -17,37 +17,37 @@ int main() {
     list = insert_front(list, "dna", "kendrick lamar");    
     list = insert_front(list, "oui", "jeremih");
     list = insert_front(list, "someone else", "emotional oranges");
-    printf("%s\n\n", divider);
+    printf("%s", divider);
 
     printf("Testing print_list:\n");
     print_list(list);
-    printf("%s\n\n", divider);
+    printf("%s", divider);
 
     //========================================================================
     printf("Testing print_node:\n");
     print_node(list);
-    printf("\n%s\n\n", divider);
+    printf("\n%s", divider);
 
     //========================================================================
     printf("Testing insert_order:\n");
     //list = insert_order(list, "humble", "kendrick lamar");
     list = insert_order(list, "Baby Shark", "Pinkfong");
     print_list(list);
-    printf("%s\n\n", divider);
+    printf("%s", divider);
 
     //========================================================================
     printf("Testing find_node:\n");
     find_node(list, "emotional oranges", "someone else");
     find_node(list, "thisIsNotAnArtist", "thisIsNotAname");
     find_node(list, "kendrick lamar", "dna");
-    printf("%s\n\n", divider);
+    printf("%s", divider);
 
     //========================================================================
     printf("Testing find_artist:\n");
     find_artist(list, "emotional oranges");
     find_artist(list, "jeremih");
     find_artist(list, "death grips");
-    printf("\n%s\n\n", divider);
+    printf("\n%s", divider);
 
     //========================================================================
     //testing songcmp (helper function) not sure if this is necessary but its part of sample output
@@ -58,7 +58,7 @@ int main() {
     for(i=0; i<5; i++) {
         random_node(list, time(NULL)*(i+2));
     }
-    printf("%s\n\n", divider);
+    printf("%s", divider);
 
     //========================================================================
     printf("Testing remove:\n");
@@ -73,7 +73,7 @@ int main() {
 
     list = remove_node(list, "boredom", "tyler, the creator");
     print_list(list);
-    printf("%s\n\n", divider);
+    printf("%s", divider);
 
     //========================================================================
     printf("Testing free_list:\n");
