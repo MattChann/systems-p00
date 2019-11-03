@@ -44,12 +44,16 @@ void print_node(struct song_node * node) {
 }
 
 //matthew
-struct song_node * find_song(struct song_node * node, char * artist, char * song) {
+struct song_node * find_node(struct song_node * node, char * artist, char * song) {
     for(; node!=NULL; node=node->next) {
-        if(artist == node->artist && song == node->name) {
+        if(strcmp(artist, node->artist)==0 && strcmp(song, node->name)==0) {
+            printf(" node found!");
+            print_node(node);
+            printf("\n");
             return node;
         }
     }
+    printf(" node not found\n");
     return NULL;
 }
 

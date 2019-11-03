@@ -12,7 +12,7 @@ void print_list(struct song_node * node);
 
 void print_node(struct song_node * node);
 
-struct song_node * find_song(struct song_node * node, char * name, char * artist);
+struct song_node * find_node(struct song_node * node, char * name, char * artist);
 
 struct song_node * find_artist(struct song_node * node, char * artist);
 

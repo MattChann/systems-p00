@@ -21,7 +21,22 @@ int main() {
     print_node(list);
     printf("\n====================================\n\n");
 
-    //testing find node 
+    printf("Testing find_node:\n");
+    char findingArtist[50] = "emotional oranges";
+    char findingSong[50] = "someone else";
+    printf("looking for [%s: %s]\n", findingArtist, findingSong);
+    find_node(list, findingArtist, findingSong);
+
+    strcpy(findingArtist, "thisIsNotAnArtist");
+    strcpy(findingSong, "thisIsNotASong");
+    printf("looking for [%s: %s]\n", findingArtist, findingSong);
+    find_node(list, findingArtist, findingSong);
+
+    strcpy(findingArtist, "kendrick lamar");
+    strcpy(findingSong, "dna");
+    printf("looking for [%s: %s]\n", findingArtist, findingSong);
+    find_node(list, findingArtist, findingSong);
+    printf("====================================\n\n");
 
     printf("Testing find_artist:\n");
     printf("looking for [emotional oranges]\n");
