@@ -13,11 +13,11 @@ int main() {
     //========================================================================
     struct song_node * list = NULL;
     printf("Testing insert_front:\n");
-    list = insert_front(list, "boredom", "tyler, the creator");
-    list = insert_front(list, "dna", "kendrick lamar");    
-    list = insert_front(list, "oui", "jeremih");
-    list = insert_front(list, "someone else", "emotional oranges");
-    printf("%s", divider);
+    list = insert_front(list, "tyler, the creator", "boredom");
+    list = insert_front(list, "kendrick lamar", "dna");
+    list = insert_front(list, "jeremih", "oui");
+    list = insert_front(list, "emotional oranges", "someone else");
+    printf("%s\n\n", divider);
 
     printf("Testing print_list:\n");
     print_list(list);
@@ -30,8 +30,8 @@ int main() {
 
     //========================================================================
     printf("Testing insert_order:\n");
-    list = insert_order(list, "baby shark", "pinkfong");
-    list = insert_order(list, "humble", "kendrick lamar");
+    list = insert_order(list, "pinkfong", "baby shark");
+    list = insert_order(list, "kendrick lamar", "humble");
     print_list(list);
     printf("%s", divider);
 
@@ -92,16 +92,16 @@ int main() {
 
     //========================================================================
     printf("Testing remove:\n");
-    list = remove_node(list, "someone else", "emotional oranges");
+    list = remove_node(list, "emotional oranges", "someone else");
     print_list(list);
 
-    list = remove_node(list, "dna", "kendrick lamar");
+    list = remove_node(list, "kendrick lamar", "dna");
     print_list(list);
 
-    list = remove_node(list, "fear", "kendrick lamar");
+    list = remove_node(list, "kendrick lamar", "fear");
     print_list(list);
 
-    list = remove_node(list, "boredom", "tyler, the creator");
+    list = remove_node(list, "tyler, the creator", "boredom");
     print_list(list);
     printf("%s", divider);
 
