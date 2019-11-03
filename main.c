@@ -121,6 +121,8 @@ int main() {
 
     struct song_node * table[27];
 
+    add_song(table, "childish gambino", "redbone");
+
     printf("Testing print_library\n");
     // print_library(table);
     printf("%s",divider);
