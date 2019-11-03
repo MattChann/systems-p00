@@ -41,7 +41,7 @@ int main() {
     find_node(list, "thisIsNotAnArtist", "thisIsNotAname");
     struct song_node *testCmpNode1 = find_node(list, "kendrick lamar", "dna");
     struct song_node *testCmpNode2 = find_node(list, "kendrick lamar", "humble");
-    printf("%s\n\n", divider);
+    printf("%s", divider);
 
     //========================================================================
     printf("Testing find_artist:\n");
@@ -52,34 +52,35 @@ int main() {
 
     //========================================================================
     printf("Testing songcmp:\n");
+    
     printf("Comparing [");
     print_node(testCmpNode1);
-    printf("] to [");
+    printf(" ] to [");
     print_node(testCmpNode1);
-    printf("]\n");
+    printf(" ]\n");
     printf(" %d\n", songcmp(testCmpNode1, testCmpNode1));
 
     printf("Comparing [");
     print_node(testCmpNode1);
-    printf("] to [");
+    printf(" ] to [");
     print_node(testCmpNode2);
-    printf("]\n");
+    printf(" ]\n");
     printf(" %d\n", songcmp(testCmpNode1, testCmpNode2));
 
     printf("Comparing [");
     print_node(testCmpNode2);
-    printf("] to [");
+    printf(" ] to [");
     print_node(testCmpNode1);
-    printf("]\n");
+    printf(" ]\n");
     printf(" %d\n", songcmp(testCmpNode2, testCmpNode1));
 
     printf("Comparing [");
     print_node(testCmpNode0);
-    printf("] to [");
+    printf(" ] to [");
     print_node(testCmpNode1);
-    printf("]\n");
+    printf(" ]\n");
     printf(" %d\n", songcmp(testCmpNode0, testCmpNode1));
-    printf("%s\n\n", divider);
+    printf("%s", divider);
 
     //========================================================================
     printf("Testing random_node:\n");
@@ -106,6 +107,7 @@ int main() {
 
     //========================================================================
     printf("Testing free_list:\n");
+    printf("list before free_list:\n");
     print_list(list);
     list = free_list(list);
     printf("list after free_list:\n");

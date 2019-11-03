@@ -170,12 +170,13 @@ struct song_node * remove_node(struct song_node * node, char * name, char * arti
 //matthew
 //frees the entire list
 struct song_node * free_list(struct song_node * node) {
-    for(; node!=NULL; node=node->next) {
+    for(; node!=NULL; ) {
         printf("Freeing node:");
         print_node(node);
         printf("\n");
 
         struct song_node *nullifyNode = node;
+        node=node->next;
         free(nullifyNode);
         nullifyNode = NULL;
     }

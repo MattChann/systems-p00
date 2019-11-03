@@ -8,7 +8,7 @@
 
 // Search for a song given song and artist name (return a pointer).
 //eric
-struct song_node * find_node(struct song_node * library, char * artist, char * name){
+struct song_node * find(struct song_node * library, char * artist, char * name){
 
 }
 
