@@ -39,14 +39,9 @@ int main() {
     printf("Testing find_node:\n");
     struct song_node *testCmpNode0 = find_node(list, "emotional oranges", "someone else");
     find_node(list, "thisIsNotAnArtist", "thisIsNotAname");
-<<<<<<< HEAD
-    find_node(list, "kendrick lamar", "dna");
-    printf("%s", divider);
-=======
     struct song_node *testCmpNode1 = find_node(list, "kendrick lamar", "dna");
     struct song_node *testCmpNode2 = find_node(list, "kendrick lamar", "humble");
     printf("%s\n\n", divider);
->>>>>>> a65d41d6a5c2f42a3cb9dd7d2367ed88bfc0297c
 
     //========================================================================
     printf("Testing find_artist:\n");
