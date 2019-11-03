@@ -19,6 +19,7 @@ int main() {
     list = insert_front(list, "emotional oranges", "someone else");
     printf("%s", divider);
 
+    //========================================================================
     printf("Testing print_list:\n");
     print_list(list);
     printf("%s", divider);
