@@ -13,13 +13,9 @@ int main() {
     //========================================================================
     struct song_node * list = NULL;
     printf("Testing insert_front:\n");
-    printf("Inserting at front: [tyler, the creator: boredom]\n");
     list = insert_front(list, "boredom", "tyler, the creator");
-    printf("Inserting at front: [kendrick lamar: dna]\n");
     list = insert_front(list, "dna", "kendrick lamar");    
-    printf("Inserting at front: [jeremih: oui]\n");
     list = insert_front(list, "oui", "jeremih");
-    printf("Inserting at front: [emotional oranges: someone else]\n");
     list = insert_front(list, "someone else", "emotional oranges");
     printf("%s\n\n", divider);
 
@@ -41,35 +37,16 @@ int main() {
 
     //========================================================================
     printf("Testing find_node:\n");
-    char artist[50] = "emotional oranges";
-    char name[50] = "someone else";
-    printf("looking for [%s: %s]\n", artist, name);
-    find_node(list, artist, name);
-
-    strcpy(artist, "thisIsNotAnArtist");
-    strcpy(name, "thisIsNotAname");
-    printf("looking for [%s: %s]\n", artist, name);
-    find_node(list, artist, name);
-
-    strcpy(artist, "kendrick lamar");
-    strcpy(name, "dna");
-    printf("looking for [%s: %s]\n", artist, name);
-    find_node(list, artist, name);
+    find_node(list, "emotional oranges", "someone else");
+    find_node(list, "thisIsNotAnArtist", "thisIsNotAname");
+    find_node(list, "kendrick lamar", "dna");
     printf("%s\n\n", divider);
 
     //========================================================================
     printf("Testing find_artist:\n");
-    strcpy(artist, "emotional oranges");
-    printf("looking for [%s]\n", artist);
-    find_artist(list, artist);
-
-    strcpy(artist, "jeremih");
-    printf("looking for [%s]\n", artist);
-    find_artist(list, artist);
-
-    strcpy(artist, "death grips");
-    printf("looking for [%s]\n", artist);
-    find_artist(list, artist);
+    find_artist(list, "emotional oranges");
+    find_artist(list, "jeremih");
+    find_artist(list, "death grips");
     printf("\n%s\n\n", divider);
 
     //========================================================================
@@ -85,28 +62,16 @@ int main() {
 
     //========================================================================
     printf("Testing remove:\n");
-    strcpy(artist, "emotional oranges");
-    strcpy(name, "someone else");
-    printf("Removing [%s: %s]\n", artist, name);
-    list = remove_node(list, name, artist);
+    list = remove_node(list, "someone else", "emotional oranges");
     print_list(list);
 
-    strcpy(artist, "kendrick lamar");
-    strcpy(name, "dna");
-    printf("Removing [%s: %s]\n", artist, name);
-    list = remove_node(list, name, artist);
+    list = remove_node(list, "dna", "kendrick lamar");
     print_list(list);
 
-    strcpy(artist, "kendrick lamar");
-    strcpy(name, "fear");
-    printf("Removing [%s: %s]\n", artist, name);
-    list = remove_node(list, name, artist);
+    list = remove_node(list, "fear", "kendrick lamar");
     print_list(list);
 
-    strcpy(artist, "tyler, the creator");
-    strcpy(name, "boredom"); 
-    printf("Removing [%s: %s]\n", artist, name);
-    list = remove_node(list, name, artist);
+    list = remove_node(list, "boredom", "tyler, the creator");
     print_list(list);
     printf("%s\n\n", divider);
 

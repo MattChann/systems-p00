@@ -7,6 +7,7 @@
 //eric
 //inserts nodes at the front
 struct song_node * insert_front(struct song_node * node, char * name, char * artist) {
+    printf(" Inserting at front: [%s: %s]\n", artist, name);
     struct song_node * newSong = malloc(sizeof(struct song_node));
     strcpy(newSong->artist, artist);
     strcpy(newSong->name, name);
@@ -49,6 +50,7 @@ void print_node(struct song_node * node) {
 //matthew
 //finds and returns a pointer to a node based on artist and song name
 struct song_node * find_node(struct song_node * node, char * artist, char * song) {
+    printf("looking for [%s: %s]\n", artist, song);
     for(; node!=NULL; node=node->next) {
         if(strcmp(artist, node->artist)==0 && strcmp(song, node->name)==0) {
             printf(" node found!");
@@ -64,6 +66,7 @@ struct song_node * find_node(struct song_node * node, char * artist, char * song
 //eric
 //finds and returns a pointer to the first song of an artist based on artist name
 struct song_node * find_artist(struct song_node * node, char * artist) {
+    printf("looking for [%s]\n", artist);
     for(; node != NULL; node = node -> next) {
         if(strcmp(node->artist, artist) == 0) {
             printf(" artist found!");
@@ -104,6 +107,7 @@ int correct_info(struct song_node * node, char * name, char * artist) {
 //eric
 //removes a single specified node from the list
 struct song_node * remove_node(struct song_node * node, char * name, char * artist) {
+    printf("Removing [%s: %s]\n", artist, name);
     //the current node is the first node
     struct song_node * current = node;
 
