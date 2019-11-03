@@ -1,6 +1,6 @@
 // matthew
 // Add song nodes
-struct song_node * add_song(struct song_node * library, char * artist, char * name);
+void * add_song(struct song_node * library, char * artist, char * name);
 
 // eric
 // Search for a song given song and artist name (return a pointer)
