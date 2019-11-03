@@ -32,4 +32,4 @@ struct song_node * remove_song(struct song_node * library, char * artist, char *
 
 // matthew
 // Clear the library
-struct song_node * clear(struct song_node * library);
+struct song_node * clear(struct song_node * library); 
