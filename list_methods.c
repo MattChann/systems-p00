@@ -72,7 +72,7 @@ void print_node(struct song_node * node) {
 struct song_node * find_node(struct song_node * node, char * artist, char * name) {
     printf("looking for [%s: %s]\n", artist, name);
     for(; node!=NULL; node=node->next) {
-        if(strcmp(artist, node->artist)==0 && strcmp(name, node->name)==0) {
+        if(correct_info(node,artist, name)) {
             printf(" node found!");
             print_node(node);
             printf("\n");
