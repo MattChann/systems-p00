@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 #include "list_headers.h"
 
 int main() {
@@ -59,7 +60,10 @@ int main() {
 
     //========================================================================
     printf("Testing random_node:\n");
-    random_song(list);
+    int i;
+    for(i=0; i<5; i++) {
+        random_song(list, time(NULL)*(i+2));
+    }
     printf("%s\n\n", divider);
 
     //========================================================================
@@ -80,7 +84,10 @@ int main() {
 
     //========================================================================
     printf("Testing free_list:\n");
-    free_list(list);
+    list = insert_front(list, "Baby Shark", "Pinkfong");
+    list = insert_front(list, "humble", "Kendrick Lamar");
+    print_list(list);
+    list = free_list(list);
     printf("%s\n\n", divider);
 
 
