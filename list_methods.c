@@ -43,15 +43,17 @@ struct song_node * insert_order(struct song_node * node, char * artist, char * n
         strcpy(newNode->name, name);
         strcpy(newNode->artist, artist);
         struct song_node * current = node;
-        for(; current->next !=NULL; current = current -> next ) {
+        for(; current->next != NULL; current = current -> next ) {
+            printf("%p\n", current);
             if(songcmp(newNode, current->next) < 0) {
+                printf("here her\n");
                 newNode -> next = current -> next;
                 current -> next = newNode;
                 return node;
             }
-
         }
         if (current->next == NULL) {
+            printf("im here\n");
             current->next = newNode;
             return node; 
         }
