@@ -5,10 +5,15 @@
 
 // matthew
 // Add song nodes
+void add_song(struct song_node * library, char * artist, char * name) {
+    int index = artist[0] - 'a' + 1;
+    if (index < 0) {index = 0;}
+    library[index] = *insert_order(&library[index], artist, name);
+}
 
 // eric
 // Search for a song given song and artist name (return a pointer)
-struct song_node * find(struct song_node * library, char * artist, char * name){
+struct song_node * search_song(struct song_node * library, char * artist, char * name){
     int index = artist[0] - 'a' + 1;
     if (index < 0) {index = 0;}
     return find_node(&library[index], artist, name);

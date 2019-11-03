@@ -15,7 +15,7 @@ struct song_node * insert_front(struct song_node * node, char * artist, char * n
 }
 
 // matthew
-// helper function: Compare two songs by artist first, then song
+// Compare two songs by artist first, then song
 // If song1 belongs BEFORE song2, returns NEGATIVE int
 // If song1 belongs AFTER  song2, returns POSITIVE int
 // If songs are the SAME, returns 0
@@ -119,7 +119,7 @@ struct song_node * random_node(struct song_node * node, int seed) {
 }
 
 // eric
-// helper function: Check info of a given node
+// Check info of a given node
 int correct_info(struct song_node * node, char * artist, char * name) {
     return (strcmp(node->name, name) == 0 && strcmp(node->artist, artist) == 0);
 }
