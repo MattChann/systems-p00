@@ -17,7 +17,7 @@ int main() {
     list = insert_front(list, "kendrick lamar", "dna");
     list = insert_front(list, "jeremih", "oui");
     list = insert_front(list, "emotional oranges", "someone else");
-    printf("%s\n\n", divider);
+    printf("%s", divider);
 
     printf("Testing print_list:\n");
     print_list(list);
