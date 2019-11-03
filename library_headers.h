@@ -1,31 +1,17 @@
-// Add song nodes.
-// matthew
+struct song_node * add_song(struct song_node * library, char * artist, char * name);
 
-// Search for a song given song and artist name (return a pointer).
-//eric
-struct song_node * find(struct song_node * library, char * artist, char * name);
+struct song_node * search_song(struct song_node * library, char * artist, char * name);
 
-// Search for an artist.
-// matthew
+struct song_node * search_artist(struct song_node * library, char * artist);
 
-// Print out all the entries under a certain letter.
-//eric
 void print_letter(struct song_node * library, char letter);
 
-// Print out all the songs of a certain artist
-// matthew
+void print_artist(struct song_node * library);
 
-// Print out the entire library.
-//eric
 void print_library(struct song_node * library);
 
+void shuffle(struct song_node * library);
 
-// Shuffle - print out a series of randomly chosen songs.
-// matthew
-
-// Delete a song
-//eric
 struct song_node * remove_song(struct song_node * library, char * artist, char * name);
 
-// Clear the library.
-// matthew
+struct song_node * clear(struct song_node * library);
