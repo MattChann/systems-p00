@@ -3,7 +3,6 @@
 #include <string.h>
 #include "list_headers.h"
 
-
 //eric
 //inserts nodes at the front
 struct song_node * insert_front(struct song_node * node, char * artist, char * name) {
