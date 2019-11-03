@@ -37,9 +37,10 @@ int main() {
 
     //========================================================================
     printf("Testing find_node:\n");
-    find_node(list, "emotional oranges", "someone else");
+    struct song_node *testCmpNode0 = find_node(list, "emotional oranges", "someone else");
     find_node(list, "thisIsNotAnArtist", "thisIsNotAname");
-    find_node(list, "kendrick lamar", "dna");
+    struct song_node *testCmpNode1 = find_node(list, "kendrick lamar", "dna");
+    struct song_node *testCmpNode2 = find_node(list, "kendrick lamar", "humble");
     printf("%s\n\n", divider);
 
     //========================================================================
@@ -50,7 +51,35 @@ int main() {
     printf("\n%s\n\n", divider);
 
     //========================================================================
-    //testing songcmp (helper function) not sure if this is necessary but its part of sample output
+    printf("Testing songcmp:\n");
+    printf("Comparing [");
+    print_node(testCmpNode1);
+    printf("] to [");
+    print_node(testCmpNode1);
+    printf("]\n");
+    printf(" %d\n", songcmp(testCmpNode1, testCmpNode1));
+
+    printf("Comparing [");
+    print_node(testCmpNode1);
+    printf("] to [");
+    print_node(testCmpNode2);
+    printf("]\n");
+    printf(" %d\n", songcmp(testCmpNode1, testCmpNode2));
+
+    printf("Comparing [");
+    print_node(testCmpNode2);
+    printf("] to [");
+    print_node(testCmpNode1);
+    printf("]\n");
+    printf(" %d\n", songcmp(testCmpNode2, testCmpNode1));
+
+    printf("Comparing [");
+    print_node(testCmpNode0);
+    printf("] to [");
+    print_node(testCmpNode1);
+    printf("]\n");
+    printf(" %d\n", songcmp(testCmpNode0, testCmpNode1));
+    printf("%s\n\n", divider);
 
     //========================================================================
     printf("Testing random_node:\n");
