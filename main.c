@@ -11,11 +11,17 @@ int main() {
     printf("====================================\n\n");
 
     //========================================================================
-    struct name_node * list = NULL;
-    list = insert_front(list, "dna", "kendrick lamar");
-    list = insert_front(list, "someone else", "emotional oranges");
-    list = insert_front(list, "oui", "jeremih");
+    struct song_node * list = NULL;
+    printf("Testing insert_front:\n");
+    printf("Inserting at front: [tyler, the creator: boredom]\n");
     list = insert_front(list, "boredom", "tyler, the creator");
+    printf("Inserting at front: [kendrick lamar: dna]\n");
+    list = insert_front(list, "dna", "kendrick lamar");    
+    printf("Inserting at front: [jeremih: oui]\n");
+    list = insert_front(list, "oui", "jeremih");
+    printf("Inserting at front: [emotional oranges: someone else]\n");
+    list = insert_front(list, "someone else", "emotional oranges");
+    printf("%s\n\n", divider);
 
     printf("Testing print_list:\n");
     print_list(list);
@@ -25,6 +31,13 @@ int main() {
     printf("Testing print_node:\n");
     print_node(list);
     printf("\n%s\n\n", divider);
+
+    //========================================================================
+    printf("Testing insert_order:\n");
+    //list = insert_order(list, "humble", "kendrick lamar");
+    list = insert_order(list, "Baby Shark", "Pinkfong");
+    print_list(list);
+    printf("%s\n\n", divider);
 
     //========================================================================
     printf("Testing find_node:\n");
@@ -99,8 +112,6 @@ int main() {
 
     //========================================================================
     printf("Testing free_list:\n");
-    list = insert_front(list, "baby shark", "pinkfong");
-    list = insert_front(list, "humble", "kendrick lamar");
     print_list(list);
     list = free_list(list);
     printf("list after free_list:\n");
@@ -109,6 +120,8 @@ int main() {
     printf("====================================\n");
     printf("MUSIC LIBRARY TESTS\n");
     printf("====================================\n\n");
+
+    struct song_node * table[27];
 
     return 0;
 }
