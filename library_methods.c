@@ -82,3 +82,9 @@ struct song_node * remove_song(struct song_node * library, char * artist, char *
 
 // matthew
 // Clear the library
+void clear(struct song_node * library) {
+    int i;
+    for(i=0; i<27; i++) {
+        free_list(&library[i]);
+    }
+}
