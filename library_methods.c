@@ -21,6 +21,13 @@ struct song_node * search_song(struct song_node * library, char * artist, char *
 
 // matthew
 // Search for an artist
+struct song_node * search_artist(struct song_node * library, char * artist) {
+    int index = artist[0] - 'a' + 1;
+    if (index < 0) {index = 0;}
+    struct song_node *foundNode = find_artist(&library[index], artist);
+    print_list(foundNode);
+    return foundNode;
+}
 
 // eric
 // Print out all the entries under a certain letter
