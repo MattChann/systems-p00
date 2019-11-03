@@ -19,10 +19,12 @@ struct song_node * find(struct song_node * library, char * artist, char * name){
 
 // eric
 // Print out all the entries under a certain letter
-void print_letter(struct song_node * library, char letter){
+void print_letter(struct song_node ** library, char letter){
     int index = letter - 'a' + 1;
     if (index < 0) {index = 0;}
-    print_list(&library[index]);
+    printf("%d\n", index);
+    printf("%c list\n", letter);
+    print_list(library[index]);
 }
 
 // matthew

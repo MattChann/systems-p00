@@ -3,12 +3,13 @@
 #include <string.h>
 #include <time.h>
 #include "list_headers.h"
+#include "library_headers.h"
 
 int main() {
-    char divider[50] = "------------------------------------\n\n";
+    char divider[50] = "====================================\n\n";
 
     printf("LINKED LIST TESTS\n");
-    printf("====================================\n\n");
+    printf("%s", divider);
 
     //========================================================================
     struct song_node * list = NULL;
@@ -114,11 +115,44 @@ int main() {
     printf("list after free_list:\n");
     print_list(list);
 
-    printf("====================================\n");
-    printf("MUSIC LIBRARY TESTS\n");
-    printf("====================================\n\n");
+    printf("%s",divider);
+    printf("MUSIC LIBRARY TESTS\n\n");
+    printf("%s",divider);
 
     struct song_node * table[27];
 
+    printf("Testing print_library\n");
+    // print_library(table);
+    printf("%s",divider);
+
+    printf("Testing print_letter\n");
+    // print_letter(table, '0');
+    // print_letter(table, 'a');
+    // print_letter(table, 'g');
+    printf("%s", divider);
+
+    // printf("Testing search_song\n");
+    
+    // printf("%s", divider);
+
+    // printf("Testing search_artist\n");
+    
+    // printf("%s", divider);
+
+    // printf("Testing clear_library\n");
+    
+    // printf("%s", divider);
+
+    // printf("Adding songs to empty library\n");
+    
+    // printf("%s", divider);
+
+    // printf("Testing print_artist\n");
+    
+    // printf("%s", divider);
+
+    // printf("Testing shuffle\n");
+    
+    // printf("%s", divider);
     return 0;
 }
