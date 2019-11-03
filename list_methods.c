@@ -14,23 +14,41 @@ struct song_node * insert_front(struct song_node * node, char * name, char * art
     return newSong;
 }
 
+//compares two songs by artist first, then song
+//if song1 belongs BEFORE song2, returns NEGATIVE int
+//if song1 belongs AFTER  song2, returns POSITIVE int
+//if songs are the SAME, returns 0
+int songcmp(struct song_node * song1, struct song_node * song2) {
+    if(strcmp(song1->artist, song2->artist) == 0) {
+        if(strcmp(song1->name, song2->name) == 0) {
+            return 0;
+        }
+        return strcmp(song1->name, song2->name);
+    }
+    return strcmp(song1->artist, song2->artist);
+}
+
 //matthew
 //inserts nodes in order (alphabetical by Artist then by Song)
 struct song_node * insert_order(struct song_node * node, char * song, char * artist) {
+    struct song_node *newNode = malloc(sizeof(struct song_node));
+    strcpy(newNode->name, song);
+    strcpy(newNode->artist, artist);
+    newNode->next = NULL;
     struct song_node *currentNode, sentinelNode;
     sentinelNode.next = node;
     for(currentNode=&sentinelNode; currentNode!=NULL; currentNode=currentNode->next) {
-        if(strcmp(artist, currentNode->artist) > 0 ||
-          (strcmp(artist, currentNode->artist) == 0 && strcmp(song, currentNode->name)))
-        {
-            struct song_node * newSong = malloc(sizeof(struct song_node));
-            currentNode->next = currentNode->next->next;
-            newSong->next = currentNode->next->next;
-            currentNode->next = newSong;
+        if(currentNode->next == NULL) {
+            currentNode->next = newNode;
+            return node;
+        }
+        if(songcmp(newNode, currentNode->next) < 0) {
+            //checks if the newNode belongs BEFORE the current node
+            newNode->next = currentNode->next;
+            currentNode->next = newNode;
             return node;
         }
     }
-    return node;
 }
 
 //eric

@@ -34,8 +34,8 @@ int main() {
 
     //========================================================================
     printf("Testing insert_order:\n");
-    //list = insert_order(list, "humble", "kendrick lamar");
-    list = insert_order(list, "Baby Shark", "Pinkfong");
+    list = insert_order(list, "baby shark", "pinkfong");
+    list = insert_order(list, "humble", "kendrick lamar");
     print_list(list);
     printf("%s\n\n", divider);
 
