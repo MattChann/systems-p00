@@ -12,10 +12,16 @@ int main() {
 
     //========================================================================
     struct song_node * list = NULL;
-    list = insert_front(list, "dna", "kendrick lamar");
+    printf("Testing insert_front:\n");
+    printf("Inserting at front: [emotional oranges: someone else]\n");
     list = insert_front(list, "someone else", "emotional oranges");
+    printf("Inserting at front: [jeremih: oui]\n");
     list = insert_front(list, "oui", "jeremih");
+    printf("Inserting at front: [kendrick lamar: dna]\n");
+    list = insert_front(list, "dna", "kendrick lamar");    
+    printf("Inserting at front: [tyler, the creator: boredom]\n");
     list = insert_front(list, "boredom", "tyler, the creator");
+    printf("%s\n\n", divider);
 
     printf("Testing print_list:\n");
     print_list(list);
@@ -93,6 +99,8 @@ int main() {
     printf("\n====================================\n");
     printf("MUSIC LIBRARY TESTS\n");
     printf("====================================\n\n");
+
+    struct song_node * table[27];
 
 
 
