@@ -80,7 +80,11 @@ struct song_node * random_song(struct song_node * node) {
     int randIndex = rand() % length;
     int i;
     for(i=0; node!=NULL; node=node->next, i++) {
-        if(i == randIndex) {return node;}
+        if(i == randIndex) {
+            print_node(node);
+            printf("\n");
+            return node;
+        }
     }
     return NULL;
 }
@@ -137,6 +141,10 @@ struct song_node * remove_node(struct song_node * node, char * name, char * arti
 //matthew
 struct song_node * free_list(struct song_node * node) {
     for(; node!=NULL; node=node->next) {
+        printf("Freeing node:");
+        print_node(node);
+        printf("\n");
+
         struct song_node *nullifyNode = node;
         free(nullifyNode);
         nullifyNode = NULL;
