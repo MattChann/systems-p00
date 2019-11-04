@@ -68,14 +68,20 @@ void print_library(struct song_node ** library){
 // matthew
 // Shuffle - print out a series of randomly chosen songs
 void shuffle(struct song_node ** library) {
+    int nonNull[27];
+    int length=0;
     int i;
-    for(i=1; i<=3;) {
-        srand((time(NULL)+i)*i);
-        struct song_node * random = library[rand() % 27];
-        if(random != NULL) {
-            random_node(random, rand()*i);
-            i++;
+    for(i=0; i<27; i++) {
+        if(library[i] != NULL) {
+            nonNull[length] = i;
+            length++;
         }
+    }
+    for(i=1; i<=3; i++) {
+        srand((time(NULL)+(17*i))*i);
+        struct song_node * random = library[nonNull[rand() % length]];
+        print_node(random);
+        printf("\n");
     }
 }
 
