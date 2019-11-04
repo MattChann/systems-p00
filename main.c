@@ -49,16 +49,17 @@ int main() {
 
     //========================================================================
     printf("Testing find_artist:\n");
-    find_artist(list, "emotional oranges");
-    find_artist(list, "jeremih");
-    find_artist(list, "death grips");
+
+    int show_print = 1; //will show diagnostic statements
+
+    find_artist(list, "emotional oranges", show_print);
+    find_artist(list, "jeremih", show_print);
+    find_artist(list, "death grips", show_print);
     printf("\n%s", divider);
 
     //========================================================================
     printf("Testing songcmp:\n");
     
-    int show_print = 1; //will show description of songs being compared
-
     printf(" %d\n", songcmp(testCmpNode1, testCmpNode1, show_print));
     printf(" %d\n", songcmp(testCmpNode1, testCmpNode2, show_print));
     printf(" %d\n", songcmp(testCmpNode2, testCmpNode1, show_print));
@@ -106,19 +107,17 @@ int main() {
     //========================================================================
     struct song_node * table[27] = {NULL};
 
-    printf("Adding songs to empty library\n");
-    add_song(table, "childish gambino", "redbone");
-    printf("%s", divider);
-
-    //========================================================================
     printf("Populating library\n");
     add_song(table, "lil nas x", "panini");
+    add_song(table, "childish gambino", "redbone");
     add_song(table, "childish gambino", "this is america");
     add_song(table, "lil tecca", "ransom");
     add_song(table, "tyler, the creator", "earfquake");
+    add_song(table, "chance the rapper", "no problem");
     add_song(table, "drake", "money in the grave");
     add_song(table, "childish gambino", "feels like summer");
     add_song(table, "*NSYNC", "bye bye bye");
+    add_song(table, "6lack", "prblms");
     printf("%s",divider);
 
     //========================================================================
@@ -133,17 +132,6 @@ int main() {
     print_letter(table, 'l');
     print_letter(table, 'g');
     printf("%s", divider);
-
-    //========================================================================
-    printf("Testing print_artist\n");
-    print_artist(table, "*NSYNC");
-    printf("\n");
-    print_artist(table, "childish gambino");
-    printf("\n");
-    print_artist(table, "lil tecca");
-    printf("\n");
-    print_artist(table, "lil xan");
-    printf("%s",divider);
 
     //========================================================================
     printf("Testing search_song\n");
@@ -180,17 +168,36 @@ int main() {
     print_library(table);
     printf("%s", divider);
 
+    //========================================================================
+    printf("Adding songs to empty library\n");
+    add_song(table, "lil nas x", "panini");
+    add_song(table, "childish gambino", "redbone");
+    add_song(table, "lil tecca", "ransom");
+    add_song(table, "tyler, the creator", "earfquake");
+    add_song(table, "drake", "money in the grave");
+    add_song(table, "childish gambino", "feels like summer");
+    add_song(table, "*NSYNC", "bye bye bye");
+    add_song(table, "6lack", "prblms");
 
-    // printf("Adding songs to empty library\n");
-    
-    // printf("%s", divider);
+    print_library(table);
+    printf("%s", divider);
 
-    // printf("Testing print_artist\n");
+    //========================================================================
+    printf("Testing print_artist\n");
+    print_artist(table, "*NSYNC");
+    printf("\n");
+    print_artist(table, "childish gambino");
+    printf("\n");
+    print_artist(table, "lil tecca");
+    printf("\n");
+    print_artist(table, "lil xan");
+    printf("%s",divider);
     
-    // printf("%s", divider);
+    //========================================================================
+    printf("Testing shuffle\n");
+    
+    printf("%s", divider);
 
-    // printf("Testing shuffle\n");
-    
-    // printf("%s", divider);
+    clear(table);
     return 0;
 }

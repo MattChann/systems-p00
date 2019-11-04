@@ -25,8 +25,7 @@ struct song_node * search_song(struct song_node ** library, char * artist, char 
 struct song_node * search_artist(struct song_node ** library, char * artist) {
     int index = artist[0] - 'a' + 1;
     if (index < 0) {index = 0;}
-    struct song_node *foundNode = find_artist(library[index], artist);
-    // print_list(foundNode);
+    struct song_node *foundNode = find_artist(library[index], artist, 1);
     return foundNode;
 }
 
@@ -46,11 +45,11 @@ void print_artist(struct song_node ** library, char * artist) {
     if (index < 0) {index = 0;}
     
     printf("Printing [%s]\n", artist);
-    struct song_node *foundNode = find_artist(library[index], artist);
+    struct song_node *foundNode = find_artist(library[index], artist,0);
     for(; foundNode!=NULL; foundNode=foundNode->next) {
+        if(strcmp(foundNode->artist, artist) != 0) {break;}
         print_node(foundNode);
         printf("\n");
-        if(strcmp(foundNode->artist, artist) != 0) {break;}
     }
 }
 

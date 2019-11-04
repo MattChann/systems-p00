@@ -41,18 +41,20 @@ int songcmp(struct song_node * song1, struct song_node * song2, int show_print) 
 // matthew
 // Insert nodes in order (alphabetical by Artist then by Song)
 struct song_node * insert_order(struct song_node * node, char * artist, char * name) {
+    printf(" Inserting in order: [%s: %s]\n", artist, name);
+
     //make new song 
     struct song_node *newNode = malloc(sizeof(struct song_node));
     strcpy(newNode->name, name);
     strcpy(newNode->artist, artist);
     newNode-> next = NULL;
 
+    // if list is empty or the song should be inserted at the front
     if(node == NULL || songcmp(newNode, node, 0) < 0) {
-        return insert_front(node, artist, name);
+        newNode->next = node;
+        return newNode;
     }
     else {
-        printf(" Inserting in order: [%s: %s]\n", artist, name);
-
         struct song_node * current = node;
         for(; current->next != NULL; current = current -> next ) {
             if(songcmp(newNode, current->next, 0) < 0) {
@@ -101,12 +103,16 @@ struct song_node * find_node(struct song_node * node, char * artist, char * name
 
 // eric
 // Find and return a pointer to the first song of an artist based on artist name
-struct song_node * find_artist(struct song_node * node, char * artist) {
-    printf("looking for [%s]\n", artist);
+struct song_node * find_artist(struct song_node * node, char * artist, int show_print) {
+    if(show_print) {
+        printf("looking for [%s]\n", artist);
+    }
     for(; node != NULL; node = node -> next) {
         if(strcmp(node->artist, artist) == 0) {
-            printf(" artist found!");
-            print_list(node);
+            if(show_print) {
+                printf(" artist found!");
+                print_list(node);
+            }
             return node;
         }
     }

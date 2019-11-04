@@ -30,7 +30,7 @@ struct song_node * find_node(struct song_node * node, char * artist, char * name
 
 // eric
 // Find and return a pointer to the first song of an artist based on artist name
-struct song_node * find_artist(struct song_node * node, char * artist);
+struct song_node * find_artist(struct song_node * node, char * artist, int show_print);
 
 // matthew
 // Return a pointer to random element in the list
