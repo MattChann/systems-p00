@@ -128,8 +128,13 @@ struct song_node * random_node(struct song_node * node, int seed) {
     struct song_node * parseNode;
     for(parseNode=node; parseNode!=NULL; parseNode=parseNode->next) {length++;}
 
+    if(length == 0) {
+        return NULL; 
+    }
+
     int randIndex = rand() % length;
     int i;
+
     for(i=0; node!=NULL; node=node->next, i++) {
         if(i == randIndex) {
             print_node(node);

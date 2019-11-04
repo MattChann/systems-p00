@@ -195,7 +195,7 @@ int main() {
     
     //========================================================================
     printf("Testing shuffle\n");
-    
+    shuffle(table);
     printf("%s", divider);
 
     clear(table);
