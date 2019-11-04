@@ -14,19 +14,19 @@ void add_song(struct song_node ** library, char * artist, char * name) {
 
 // eric
 // Search for a song given song and artist name (return a pointer)
-struct song_node * search_song(struct song_node * library, char * artist, char * name){
+struct song_node * search_song(struct song_node ** library, char * artist, char * name){
     int index = artist[0] - 'a' + 1;
     if (index < 0) {index = 0;}
-    return find_node(&library[index], artist, name);
+    return find_node(library[index], artist, name);
 }
 
 // matthew
 // Search for an artist
-struct song_node * search_artist(struct song_node * library, char * artist) {
+struct song_node * search_artist(struct song_node ** library, char * artist) {
     int index = artist[0] - 'a' + 1;
     if (index < 0) {index = 0;}
-    struct song_node *foundNode = find_artist(&library[index], artist);
-    print_list(foundNode);
+    struct song_node *foundNode = find_artist(library[index], artist);
+    // print_list(foundNode);
     return foundNode;
 }
 
@@ -35,19 +35,18 @@ struct song_node * search_artist(struct song_node * library, char * artist) {
 void print_letter(struct song_node ** library, char letter){
     int index = letter - 'a' + 1;
     if (index < 0) {index = 0;}
-    printf("%d\n", index);
     printf("%c list\n", letter);
     print_list(library[index]);
 }
 
 // matthew
 // Print out all the songs of a certain artist
-void print_artist(struct song_node * library, char * artist) {
+void print_artist(struct song_node ** library, char * artist) {
     int index = artist[0] - 'a' + 1;
     if (index < 0) {index = 0;}
     
     printf("Printing [%s]\n", artist);
-    struct song_node *foundNode = find_artist(&library[index], artist);
+    struct song_node *foundNode = find_artist(library[index], artist);
     for(; foundNode->artist!=artist; foundNode=foundNode->next) {
         print_node(foundNode);
         printf("\n");
@@ -56,35 +55,39 @@ void print_artist(struct song_node * library, char * artist) {
 
 // eric
 // Print out the entire library
-void print_library(struct song_node * library){
+void print_library(struct song_node ** library){
     int i;
-    for(i = 0; i < 27; i++) { print_list(&library[i]); }
+    for(i = 0; i < 27; i++) {
+        if(library[i] != NULL) {
+            printf("%c list\n", i + 96);
+            print_list(library[i]); 
+        } 
+    }
 }
 
 // matthew
 // Shuffle - print out a series of randomly chosen songs
-void shuffle(struct song_node * library) {
+void shuffle(struct song_node ** library) {
     int i;
     for(i=1; i<=3; i++) {
         srand((time(NULL)+i)*i);
-        random_node(&library[rand() % 27], rand()*i);
+        random_node(library[rand() % 27], rand()*i);
     }
 }
 
 // eric
 // Delete a song
-struct song_node * remove_song(struct song_node * library, char * artist, char * name){
+void remove_song(struct song_node ** library, char * artist, char * name){
     int index = artist[0] - 'a' + 1;
     if (index < 0) {index = 0;}
-    library[index] = *remove_node(&library[index], artist, name);
-    return library;
+    library[index] = remove_node(library[index], artist, name);
 }
 
 // matthew
 // Clear the library
-void clear(struct song_node * library) {
+void clear(struct song_node ** library) {
     int i;
     for(i=0; i<27; i++) {
-        free_list(&library[i]);
+        library[i] = free_list(library[i]);
     }
 }

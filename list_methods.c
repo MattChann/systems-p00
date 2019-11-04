@@ -34,28 +34,48 @@ int songcmp(struct song_node * song1, struct song_node * song2) {
 // matthew
 // Insert nodes in order (alphabetical by Artist then by Song)
 struct song_node * insert_order(struct song_node * node, char * artist, char * name) {
-    struct song_node *newNode = malloc(sizeof(struct song_node));
-    strcpy(newNode->name, name);
-    strcpy(newNode->artist, artist);
-    newNode->next = NULL;
-    printf(" Inserting in order: [%s: %s]\n", artist, name);
-
-    struct song_node *currentNode, sentinelNode;
-    sentinelNode.next = node;
-    for(currentNode=&sentinelNode; currentNode!=NULL; currentNode=currentNode->next) {
-        if(currentNode->next == NULL) {
-            currentNode->next = newNode;
-            return node;
+    if(node == NULL) {
+        return insert_front(node, artist, name);
+    }
+    else {
+        printf(" Inserting in order: [%s: %s]\n", artist, name);
+        struct song_node *newNode = malloc(sizeof(struct song_node));
+        strcpy(newNode->name, name);
+        strcpy(newNode->artist, artist);
+        struct song_node * current = node;
+        for(; current->next != NULL; current = current -> next ) {
+            printf("%p\n", current);
+            if(songcmp(newNode, current->next) < 0) {
+                printf("here her\n");
+                newNode -> next = current -> next;
+                current -> next = newNode;
+                return node;
+            }
         }
-        if(songcmp(newNode, currentNode->next) < 0) {
-            // checks if the newNode belongs BEFORE the current node
-            newNode->next = currentNode->next;
-            currentNode->next = newNode;
-            return node;
+        if (current->next == NULL) {
+            printf("im here\n");
+            current->next = newNode;
+            return node; 
         }
     }
-    printf("here\n");
-    return insert_front(node, artist, name);
+
+
+    // struct song_node *currentNode, sentinelNode;
+    // sentinelNode.next = node;
+    // for(currentNode=&sentinelNode; currentNode!=NULL; currentNode=currentNode->next) {
+    //     if(currentNode->next == NULL) {
+    //         currentNode->next = newNode;
+    //         return node;
+    //     }
+    //     if(songcmp(newNode, currentNode->next) < 0) {
+    //         // checks if the newNode belongs BEFORE the current node
+    //         newNode->next = currentNode->next;
+    //         currentNode->next = newNode;
+    //         return node;
+    //     }
+    // }
+    // printf("here\n");
+    // return insert_front(node, artist, name);
 }
 
 // eric

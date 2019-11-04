@@ -14,10 +14,10 @@ int main() {
     //========================================================================
     struct song_node * list = NULL;
     printf("Testing insert_front:\n");
-    // list = insert_front(list, "tyler, the creator", "boredom");
-    // list = insert_front(list, "kendrick lamar", "dna");
-    // list = insert_front(list, "jeremih", "oui");
-    // list = insert_front(list, "emotional oranges", "someone else");
+    list = insert_front(list, "tyler, the creator", "boredom");
+    list = insert_front(list, "kendrick lamar", "dna");
+    list = insert_front(list, "jeremih", "oui");
+    list = insert_front(list, "emotional oranges", "someone else");
     printf("%s", divider);
 
     //========================================================================
@@ -119,31 +119,36 @@ int main() {
     printf("MUSIC LIBRARY TESTS\n\n");
     printf("%s",divider);
 
-    struct song_node * table[27];
+    struct song_node * table[27] = {NULL};
 
+    printf("Adding songs to empty library\n");
     add_song(table, "childish gambino", "redbone");
+    printf("%s", divider);
 
     printf("Testing print_library\n");
-    // print_library(table);
+    print_library(table);
     printf("%s",divider);
 
     printf("Testing print_letter\n");
-    // print_letter(table, '0');
-    // print_letter(table, 'a');
-    // print_letter(table, 'g');
+    print_letter(table, '0');
+    print_letter(table, 'c');
+    print_letter(table, 'g');
     printf("%s", divider);
 
-    // printf("Testing search_song\n");
-    
-    // printf("%s", divider);
+    printf("Testing search_song\n");
+    search_song(table, "childish gambino", "redbone");
+    printf("%s", divider);
 
-    // printf("Testing search_artist\n");
-    
-    // printf("%s", divider);
+    printf("Testing search_artist\n");
+    search_artist(table, "childish gambino");
+    printf("%s", divider);
 
-    // printf("Testing clear_library\n");
-    
-    // printf("%s", divider);
+    printf("Testing clear_library\n");
+    clear(table);
+    printf("Library after clear:\n");
+    print_library(table);
+    printf("%s", divider);
+
 
     // printf("Adding songs to empty library\n");
     
