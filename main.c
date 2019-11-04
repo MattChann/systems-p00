@@ -115,34 +115,53 @@ int main() {
     printf("list after free_list:\n");
     print_list(list);
 
+
+    //=\=/=\=/=\=/=\=/=\=/=\=/=\=/=\=/=\=/=\=/=\=/=\=/=\=/=\=/=\=/=\=/=\=/=\=/
     printf("%s",divider);
     printf("MUSIC LIBRARY TESTS\n\n");
     printf("%s",divider);
+    //=\=/=\=/=\=/=\=/=\=/=\=/=\=/=\=/=\=/=\=/=\=/=\=/=\=/=\=/=\=/=\=/=\=/=\=/
 
+    //========================================================================
     struct song_node * table[27] = {NULL};
 
     printf("Adding songs to empty library\n");
     add_song(table, "childish gambino", "redbone");
     printf("%s", divider);
 
+    //========================================================================
+    printf("Populating library\n");
+    add_song(table, "lil nas x", "panini");
+    add_song(table, "lil tecca", "ransom");
+    add_song(table, "tyler, the creator", "earfquake");
+    add_song(table, "drake", "money in the grave");
+    add_song(table, "*NSYNC", "bye bye bye");
+    printf("%s",divider);
+
+    //========================================================================
     printf("Testing print_library\n");
     print_library(table);
     printf("%s",divider);
 
+    //========================================================================
     printf("Testing print_letter\n");
     print_letter(table, '0');
     print_letter(table, 'c');
+    print_letter(table, 'l');
     print_letter(table, 'g');
     printf("%s", divider);
 
+    //========================================================================
     printf("Testing search_song\n");
     search_song(table, "childish gambino", "redbone");
     printf("%s", divider);
 
+    //========================================================================
     printf("Testing search_artist\n");
     search_artist(table, "childish gambino");
     printf("%s", divider);
 
+    //========================================================================
     printf("Testing clear_library\n");
     clear(table);
     printf("Library after clear:\n");
