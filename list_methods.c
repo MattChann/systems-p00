@@ -52,27 +52,10 @@ struct song_node * insert_order(struct song_node * node, char * artist, char * n
         }
         if (current->next == NULL) {
             current->next = newNode;
+            newNode-> next = NULL;
             return node; 
         }
     }
-
-
-    // struct song_node *currentNode, sentinelNode;
-    // sentinelNode.next = node;
-    // for(currentNode=&sentinelNode; currentNode!=NULL; currentNode=currentNode->next) {
-    //     if(currentNode->next == NULL) {
-    //         currentNode->next = newNode;
-    //         return node;
-    //     }
-    //     if(songcmp(newNode, currentNode->next) < 0) {
-    //         // checks if the newNode belongs BEFORE the current node
-    //         newNode->next = currentNode->next;
-    //         currentNode->next = newNode;
-    //         return node;
-    //     }
-    // }
-    // printf("here\n");
-    // return insert_front(node, artist, name);
 }
 
 // eric
