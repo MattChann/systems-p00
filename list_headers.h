@@ -10,7 +10,7 @@ struct song_node * insert_front(struct song_node * node, char * artist, char * n
 
 // matthew
 // Compare two songs by artist first, then song
-int songcmp(struct song_node * node1, struct song_node * node2);
+int songcmp(struct song_node * node1, struct song_node * node2, int show_print);
 
 // matthew
 // Insert nodes in order (alphabetical by Artist then by Song)

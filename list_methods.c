@@ -19,7 +19,14 @@ struct song_node * insert_front(struct song_node * node, char * artist, char * n
 // If song1 belongs BEFORE song2, returns NEGATIVE int
 // If song1 belongs AFTER  song2, returns POSITIVE int
 // If songs are the SAME, returns 0
-int songcmp(struct song_node * song1, struct song_node * song2) {
+int songcmp(struct song_node * song1, struct song_node * song2, int show_print) {
+    if(show_print){
+        printf("Comparing [");
+        print_node(song1);
+        printf(" ] to [");
+        print_node(song2);
+        printf(" ]\n");
+    }
     if(song1 != NULL && song2 != NULL) {
         if(strcmp(song1->artist, song2->artist) == 0) {
             if(strcmp(song1->name, song2->name) == 0) {
@@ -34,17 +41,21 @@ int songcmp(struct song_node * song1, struct song_node * song2) {
 // matthew
 // Insert nodes in order (alphabetical by Artist then by Song)
 struct song_node * insert_order(struct song_node * node, char * artist, char * name) {
-    if(node == NULL) {
+    //make new song 
+    struct song_node *newNode = malloc(sizeof(struct song_node));
+    strcpy(newNode->name, name);
+    strcpy(newNode->artist, artist);
+    newNode-> next = NULL;
+
+    if(node == NULL || songcmp(newNode, node, 0) < 0) {
         return insert_front(node, artist, name);
     }
     else {
         printf(" Inserting in order: [%s: %s]\n", artist, name);
-        struct song_node *newNode = malloc(sizeof(struct song_node));
-        strcpy(newNode->name, name);
-        strcpy(newNode->artist, artist);
+
         struct song_node * current = node;
         for(; current->next != NULL; current = current -> next ) {
-            if(songcmp(newNode, current->next) < 0) {
+            if(songcmp(newNode, current->next, 0) < 0) {
                 newNode -> next = current -> next;
                 current -> next = newNode;
                 return node;
@@ -52,7 +63,6 @@ struct song_node * insert_order(struct song_node * node, char * artist, char * n
         }
         if (current->next == NULL) {
             current->next = newNode;
-            newNode-> next = NULL;
             return node; 
         }
     }

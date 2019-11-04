@@ -34,6 +34,8 @@ int main() {
     printf("Testing insert_order:\n");
     list = insert_order(list, "pinkfong", "baby shark");
     list = insert_order(list, "kendrick lamar", "humble");
+    list = insert_order(list, "wu tang clan", "method man");
+    list = insert_order(list, "beyonce", "single ladies");
     print_list(list);
     printf("%s", divider);
 
@@ -55,33 +57,12 @@ int main() {
     //========================================================================
     printf("Testing songcmp:\n");
     
-    printf("Comparing [");
-    print_node(testCmpNode1);
-    printf(" ] to [");
-    print_node(testCmpNode1);
-    printf(" ]\n");
-    printf(" %d\n", songcmp(testCmpNode1, testCmpNode1));
+    int show_print = 1; //will show description of songs being compared
 
-    printf("Comparing [");
-    print_node(testCmpNode1);
-    printf(" ] to [");
-    print_node(testCmpNode2);
-    printf(" ]\n");
-    printf(" %d\n", songcmp(testCmpNode1, testCmpNode2));
-
-    printf("Comparing [");
-    print_node(testCmpNode2);
-    printf(" ] to [");
-    print_node(testCmpNode1);
-    printf(" ]\n");
-    printf(" %d\n", songcmp(testCmpNode2, testCmpNode1));
-
-    printf("Comparing [");
-    print_node(testCmpNode0);
-    printf(" ] to [");
-    print_node(testCmpNode1);
-    printf(" ]\n");
-    printf(" %d\n", songcmp(testCmpNode0, testCmpNode1));
+    printf(" %d\n", songcmp(testCmpNode1, testCmpNode1, show_print));
+    printf(" %d\n", songcmp(testCmpNode1, testCmpNode2, show_print));
+    printf(" %d\n", songcmp(testCmpNode2, testCmpNode1, show_print));
+    printf(" %d\n", songcmp(testCmpNode0, testCmpNode1, show_print));
     printf("%s", divider);
 
     //========================================================================
@@ -147,7 +128,7 @@ int main() {
 
     //========================================================================
     printf("Testing print_letter\n");
-    print_letter(table, '0');
+    print_letter(table, '`');
     print_letter(table, 'c');
     print_letter(table, 'l');
     print_letter(table, 'g');
