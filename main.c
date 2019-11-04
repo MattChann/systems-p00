@@ -132,9 +132,11 @@ int main() {
     //========================================================================
     printf("Populating library\n");
     add_song(table, "lil nas x", "panini");
+    add_song(table, "childish gambino", "this is america");
     add_song(table, "lil tecca", "ransom");
     add_song(table, "tyler, the creator", "earfquake");
     add_song(table, "drake", "money in the grave");
+    add_song(table, "childish gambino", "feels like summer");
     add_song(table, "*NSYNC", "bye bye bye");
     printf("%s",divider);
 
@@ -152,13 +154,42 @@ int main() {
     printf("%s", divider);
 
     //========================================================================
+    printf("Testing print_artist\n");
+    print_artist(table, "*NSYNC");
+    printf("\n");
+    print_artist(table, "childish gambino");
+    printf("\n");
+    print_artist(table, "lil tecca");
+    printf("\n");
+    print_artist(table, "lil xan");
+    printf("%s",divider);
+
+    //========================================================================
     printf("Testing search_song\n");
     search_song(table, "childish gambino", "redbone");
+    search_song(table, "childish gambino", "BLUEbone");
+    search_song(table, "ADULTish gambino", "redbone");
+    search_song(table, "tyler, the creator", "earfquake");
     printf("%s", divider);
 
     //========================================================================
     printf("Testing search_artist\n");
+    search_artist(table, "lil nas x");
     search_artist(table, "childish gambino");
+    search_artist(table, "drake");
+    search_artist(table, "this is not an artist");
+    printf("%s", divider);
+
+    //========================================================================
+    printf("Testing remove_song\n");
+    remove_song(table, "childish gambino", "redbone");
+    print_library(table);
+    printf("\n");
+    remove_song(table, "tyler, the creator", "earfquake");
+    print_library(table);
+    printf("\n");
+    remove_song(table, "pinkfong", "baby shark");
+    print_library(table);
     printf("%s", divider);
 
     //========================================================================
