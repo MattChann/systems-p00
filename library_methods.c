@@ -47,9 +47,10 @@ void print_artist(struct song_node ** library, char * artist) {
     
     printf("Printing [%s]\n", artist);
     struct song_node *foundNode = find_artist(library[index], artist);
-    for(; foundNode->artist!=artist; foundNode=foundNode->next) {
+    for(; foundNode!=NULL; foundNode=foundNode->next) {
         print_node(foundNode);
         printf("\n");
+        if(strcmp(foundNode->artist, artist) != 0) {break;}
     }
 }
 
